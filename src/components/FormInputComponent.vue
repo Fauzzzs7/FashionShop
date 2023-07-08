@@ -174,7 +174,7 @@ export default {
       // Send the forms data to the Laravel controller
       axios.post('http://127.0.0.1:8000/api/product', { forms: formsData }, { headers: { 'Content-Type': 'multipart/form-data' } })
         .then(response => {
-
+          this.$router.push({ name: 'Dashboard'});
           console.log('success');
           // Continue with the rest of your logic
 
