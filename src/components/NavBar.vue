@@ -1,5 +1,5 @@
 <script>
-export default {
+export default {  
   data() {
     return {
       isLoggedIn: false,
@@ -11,15 +11,17 @@ export default {
 <template>
   <nav :class="{'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn}">
     <div class="container flex justify-center w-full">
+      <RouterLink to="/">
       <img
-        src="src/assets/navBarAssets/logo_web.svg"
+        src="../assets/navBarAssets/logo_web.svg"
         alt="logo"
         width="80"
-        class="relative top-1"
+        class="relative logo top-1"
       />
+    </RouterLink>
       <div class="flex items-center justify-center search">
         <div
-          class="flex items-center justify-center bg-white rounded-[1.5rem] px-[0.75rem] ms-20"
+          class="icon_search flex items-center justify-center bg-white rounded-[1.5rem] px-[0.75rem] ms-20"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,26 +36,21 @@ export default {
           </svg>
           <input
             type="text"
-            class="p-1.5 text-gray-800 bg-white outline-none w-[855px] h-[3.5rem] rounded-[1.5rem] text-base font-desc"
+            class="search p-1.5 text-gray-800 bg-white outline-none w-[855px] h-[3.5rem] rounded-[1.5rem] text-base font-desc"
             placeholder="Search"
           />
         </div>
 
         <button v-if="isLoggedIn">
           <img
-            src="src/assets/navBarAssets/Bookmark.svg"
+            src="../assets/navBarAssets/Bookmark.svg"
             alt="bookmark"
             class="p-10"
           />
-          <div>
-            <div class="model-login">
-              <login />
-            </div>
-          </div>
         </button>
         <router-link to="/login">
           <button
-          class="text-white bg-dark font-display py-3 px-3 w-[170px] h-11 flex justify-center rounded-lg ms-5"
+          class="btn_login text-white bg-dark font-display py-3 px-3 w-[170px] h-11 flex justify-center rounded-lg ms-5"
         >
           Log In
         </button>
@@ -66,10 +63,26 @@ export default {
 
 <style>
   .logged-in{
-    margin-top: 0.5rem;
+    position: relative;
+    top: 10px;
+  }
+  .logged-in .logo{
+    position: relative;
+    top: 2.5rem;
   }
 
   .not-logged-in{
     margin-top: 2rem;
   }
+  .not-logged-in .icon_search{
+    position: relative;
+    right: 3.6rem;
+  }
+  
+  .not-logged-in .logo{
+    position: relative;
+    right: 3.7rem;
+    top: 0.6rem;
+  }
+  
 </style>

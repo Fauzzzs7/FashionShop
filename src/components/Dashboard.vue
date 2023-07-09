@@ -1,5 +1,5 @@
 <template>
-  <div class="app flex">
+  <div class="flex app">
     <!-- Headbar -->
     
 

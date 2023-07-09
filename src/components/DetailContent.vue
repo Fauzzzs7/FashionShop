@@ -1,10 +1,9 @@
 <script>
 import axios from "axios";
 export default {
-
   
-
-  name: "ContentComponent",
+  
+  
   data() {
     return {
       style: [],
@@ -54,8 +53,8 @@ export default {
       </div>
     </div>
     <div class="relative grid justify-items-end detail-content">
-    <div class="detail relative w-[170px] h-[170px] my-2 right-36 bottom-[36rem] bg-secondGrey ">
-        <div v-for="Product in Products" :key="Product.id">
+    <div class="detail relative w-[170px] h-[170px] my-2 right-36 bottom-[36rem] bg-secondGrey" v-for="Product in Products" :key="Product.id">
+        <div >
             <img
           class="w-[127px] relative top-5 left-5"
           :src="`${Product.link_gambar}`"

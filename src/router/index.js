@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePages from '../pages/HomePages.vue'
-import DetailComponent from '../pages/DetailContentHome.vue'
+import DetailContentHome from '../pages/DetailContentHome.vue'
 import CategoryPages from '../pages/HomePages.vue'
 import HomeFavorite from '../pages/HomeFavorite.vue'
 import AddFav from '../pages/AddFav.vue'
@@ -43,7 +43,6 @@ const router = createRouter({
       
         path: '/detail/:id',
         name: 'detail',
-        component : DetailComponent,
         props: true,
     },
     {

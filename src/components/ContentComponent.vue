@@ -38,7 +38,7 @@ export default {
     <div class="mt-8 columns-3 ms-20">
       <div v-if="style">
         <div v-for="style in style" :key="style.id"  >
-          <router-link  :to="{ name: 'detail', params: { id: style.id} }">
+          <router-link  :to="{ name: 'detail', params: { id: style.id } }">
           <img
             class="w-[390px] h-[582px] rounded-[34px] object-cover"
             :src="`${style.gambar_url}`"
@@ -48,37 +48,6 @@ export default {
         </div>
         
       </div>
-
-      <!-- <img
-        class="w-[390px] h-[582px] rounded-[34px] object-cover"
-        src="src/assets/images/img1.jpg"
-        alt="content"
-      />
-
-      <img
-        class="w-[390px] h-[582px] rounded-[34px] object-cover"
-        src="src/assets/images/img1.jpg"
-        alt="content"
-      />
-    </div>
-    <div class="mt-[50px] columns-3 ms-20">
-      <img
-        class="w-[390px] h-[582px] rounded-[34px] object-cover"
-        src="src/assets/images/img1.jpg"
-        alt="content"
-      />
-
-      <img
-        class="w-[390px] h-[582px] rounded-[34px] object-cover"
-        src="src/assets/images/img1.jpg"
-        alt="content"
-      />
-
-      <img
-        class="w-[390px] h-[582px] rounded-[34px] object-cover"
-        src="src/assets/images/img1.jpg"
-        alt="content"
-      /> -->
     </div>
   </div>
 </template>
