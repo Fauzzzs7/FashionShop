@@ -1,5 +1,5 @@
 <template>
-    <!-- <div class="flex flex-wrap">
+     <div class="flex flex-wrap">
       <div class="flex" style="width: 100vw; height: 100%">
         <img src="../assets/images/LOGO WEB 1.jpg" class="h-10 mt-10 ml-10" />
         <div
@@ -71,7 +71,7 @@
                 <span class="text-xs font-semibold text-gray-400"
                   >You have an account</span
                 >
-                <router-link to="/">
+                <router-link to="/login">
                   <a href="#" class="text-xs font-semibold text-black">Login</a>
                 </router-link>
               </div>
@@ -90,7 +90,7 @@
           />
         </div>
       </div>
-    </div> -->
+    </div>
   </template>
   
   <script setup></script>

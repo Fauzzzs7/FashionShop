@@ -8,7 +8,7 @@ import Dashboard from '../components/Dashboard.vue'
 import Index from '../components/Index.vue'
 import AddComponent from '../components/AddComponent.vue'
 import login from '../pages/LoginHome.vue'
-import signup from '../pages/LoginHome.vue'
+import signup from '../pages/SignUpHome.vue'
 
 
 const router = createRouter({
