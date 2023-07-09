@@ -1,6 +1,6 @@
 <script></script>
 <template>
-  <div class="relative category ms-28">
+  <div class="relative category ms-32">
     <div class="absolute left-0 flex mt-20">
       <router-link to="/">
         <span

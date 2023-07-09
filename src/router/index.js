@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePages from '../pages/HomePages.vue'
-import DetailContent from '../pages/DetailContent.vue'
+import DetailContentHome from '../pages/DetailContentHome.vue'
 import CategoryPages from '../pages/HomePages.vue'
 import HomeFavorite from '../pages/HomeFavorite.vue'
 import AddFav from '../pages/AddFav.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Index from '../components/Index.vue'
 import AddComponent from '../components/AddComponent.vue'
+import login from '../pages/LoginHome.vue'
+import signup from '../pages/LoginHome.vue'
 
 
 const router = createRouter({
@@ -19,16 +21,29 @@ const router = createRouter({
     },
 
     {
-      path: '/category/',
-      name: 'category',
-      component: CategoryPages,
-      // props: true
+      path: '/login',
+      name: 'login',
+      component: login
     },
 
     {
-      path: '/detail',
-      name: 'detail',
-      component: DetailContent
+      path: '/signup',
+      name: 'signup',
+      component: signup
+    },
+    
+    {
+      path: '/category/',
+      name: 'category',
+      component: CategoryPages,
+       props: true
+    },
+
+    {
+      
+        path: '/detail/:id',
+        name: 'detail',
+        props: true,
     },
     {
 
