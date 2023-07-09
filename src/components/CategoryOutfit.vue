@@ -4,12 +4,12 @@
     <div class="absolute left-0 flex mt-20">
       <router-link to="/">
         <span
-          class="absolute font-medium text-white mx left-20 font-desc text-title top-3"
+          class="absolute font-medium text-white mx left-20 font-desc text-title top-4"
           >Casual</span
         >
         <button class="inline-flex items-center h-auto font-bold text-gray-800">
           <img
-            class="img-category rounded-[22px] h-auto"
+            class="img-category rounded-[22px] h-auto w-[270px] mt-2"
             src="../assets/category/image 4.jpg"
             alt="casual"
           />
@@ -17,7 +17,7 @@
       </router-link>
       <button class="inline-flex items-center h-auto font-bold text-gray-800">
         <span
-          class="absolute font-medium text-white ms-[4rem] left-80 font-desc text-title top-3"
+          class="absolute font-medium text-white ms-[4rem] left-80 font-desc text-title top-4"
           >Formal</span
         >
         <img
@@ -28,7 +28,7 @@
       </button>
       <button class="inline-flex items-center h-auto font-bold text-gray-800">
         <span
-          class="absolute font-medium text-white font-desc ms-[4rem] text-title top-3"
+          class="absolute font-medium text-white font-desc ms-[4rem] text-title top-4"
           >Street Style</span
         >
         <img
@@ -39,7 +39,7 @@
       </button>
       <button class="inline-flex items-center h-auto font-bold text-gray-800">
         <span
-          class="absolute font-medium text-white ms-[4rem] font-desc text-title top-3"
+          class="absolute font-medium text-white ms-[4rem] font-desc text-title top-4"
           >vintage Style</span
         >
         <img
@@ -50,7 +50,7 @@
       </button>
       <button class="inline-flex items-center h-auto font-bold text-gray-800">
         <span
-          class="absolute font-medium text-white ms-[4rem] font-desc text-title top-3"
+          class="absolute font-medium text-white ms-[4rem] font-desc text-title top-4"
           >islamic Style</span
         >
         <img
