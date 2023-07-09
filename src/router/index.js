@@ -4,9 +4,10 @@ import DetailContentHome from '../pages/DetailContentHome.vue'
 import CategoryPages from '../pages/HomePages.vue'
 import HomeFavorite from '../pages/HomeFavorite.vue'
 import AddFav from '../pages/AddFav.vue'
-import Dashboard from '../components/Dashboard.vue'
-import Index from '../components/Index.vue'
-import AddComponent from '../components/AddComponent.vue'
+import Dashboard from '../Dashboard/Dashboard.vue'
+import Index from '../Dashboard/Index.vue'
+import ViewComponent from '../Dashboard/ViewComponent.vue'
+import AddComponent from '../Dashboard/AddComponent.vue'
 import login from '../pages/LoginHome.vue'
 import signup from '../pages/LoginHome.vue'
 
@@ -43,6 +44,7 @@ const router = createRouter({
       
         path: '/detail/:id',
         name: 'detail',
+        component: DetailContentHome,
         props: true,
     },
     {
@@ -74,6 +76,11 @@ const router = createRouter({
       path: '/dashboard/addComponent/:id',
       name: 'AddComponent',
       component: AddComponent
+    },
+    {
+      path: '/ViewComponent/:id',
+      name: 'ViewComponent',
+      component: ViewComponent
     },
   ]
 })

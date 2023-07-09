@@ -52,12 +52,18 @@
             </td>
             <td class="px-6 py-4 border-b border-gray-200">{{ item.gender }}</td>
             <td class="px-6 py-4 border-b border-gray-200">{{ item.category }}</td>
-            <td class="px-6 py-4 border-b border-gray-200"><product :id="item.id"/></td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              <product :id="item.id" />
+            </td>
 
             <td class="px-6 py-4 border-b border-gray-200">
-              <button class="px-4 py-2 text-red bg-red-500 rounded-lg mr-2 hover:bg">Delete</button>
-              <button class="px-4 py-2 text-blue bg-blue-500 rounded-lg mr-2 hover:bg">Edit</button>
-              <button class="px-4 py-2 text-green bg-green-500 rounded-lg hover:bg">Update</button>
+              <div class="flex flex-col items-center justify-center">
+                <button class="px-4 py-2 text-green bg-white2 mb-1 rounded-lg hover:bg-grey " @click="ViewComponent(item.id)">View Component</button>
+                <button class="px-4 py-2 text-blue bg-white2 mb-1 rounded-lg mr-2 hover:bg-grey">Edit</button>
+                <button class="px-4 py-2 text-red bg-white2  rounded-lg mr-2 hover:bg-grey ">Delete</button>
+
+
+              </div>
             </td>
           </tr>
         </tbody>
@@ -91,6 +97,9 @@ export default {
   methods: {
     AddStyle() {
       this.$router.push('/dashboard/add');
+    },
+    ViewComponent(id) {
+      this.$router.push({ name: 'ViewComponent', params: { id: id} });
     }
   }
 }
@@ -126,4 +135,5 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}</style>
+}
+</style>
