@@ -1,5 +1,5 @@
 <script></script>
-<template>
+<template sm>
   <div class="relative category ms-32">
     <div class="absolute left-0 flex mt-20">
       <router-link to="/">

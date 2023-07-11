@@ -15,8 +15,8 @@ export default {
       <img
         src="../assets/navBarAssets/logo_web.svg"
         alt="logo"
-        width="80"
-        class="relative logo top-1"
+        width="60"
+        class="justify-items-start mt-3"
       />
     </RouterLink>
       <div class="flex items-center justify-center search">
@@ -36,7 +36,7 @@ export default {
           </svg>
           <input
             type="text"
-            class="search p-1.5 text-gray-800 bg-white outline-none w-[855px] h-[3.5rem] rounded-[1.5rem] text-base font-desc"
+            class="search p-1.5 text-gray-800 bg-white outline-none w-[223px] h-[3rem] rounded-[1.5rem] text-base font-desc"
             placeholder="Search"
           />
         </div>
@@ -50,7 +50,7 @@ export default {
         </button>
         <router-link to="/login">
           <button
-          class="btn_login text-white bg-dark font-display py-3 px-3 w-[170px] h-11 flex justify-center rounded-lg ms-5"
+          class="btn_login text-white bg-dark font-display py-1.5 px-3 w-[76px] h-9 flex justify-center rounded-lg ms-[-40px]"
         >
           Log In
         </button>
