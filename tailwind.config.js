@@ -30,6 +30,11 @@ export default {
       base: '1.125rem',
       xxl: '2.125rem',
       title:'2rem',
+      sm: '24px'
+    },
+
+    height:{
+
     }
 
     
