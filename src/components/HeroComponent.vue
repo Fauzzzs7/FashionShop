@@ -1,49 +1,23 @@
 <template>
   <div class="container">
-    <h1 class="font-semibold text-dark mt-9 ms-20 text-xxl font-display">
+    <h1 class="font-semibold text-dark mt-8 ms-6 text-xxl font-display">
       TREND FOR NOW
     </h1>
-    <Swiper
-      :slides-per-view="3"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-      :navigation="true"
-      :modules="modules"
-    >
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-auto mt-[50px] rounded-3xl ms-[214px]"
-          src="../assets/images/img1.jpg"
-          alt="trending"
-        />
+    <Swiper :slides-per-view="3" @swiper="onSwiper" @slideChange="onSlideChange" :navigation="true" :modules="modules">
+      <SwiperSlide><img class="w-[130px] h-[250px] mt-[50px] rounded-3xl ms-[28px] object-cover"
+          src="../assets/images/img1.jpg" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] ms-[102px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img2.jpg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="w-[130px] h-[250px] ms-[18px] mt-[50px] rounded-3xl object-cover"
+          src="../assets/images/img2.jpg" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="w-[130px] h-[250px] mt-[50px] ms-[8px] rounded-3xl object-cover"
+          src="../assets/images/img3.jpeg" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="w-[130px] h-[250px] mt-[50px] rounded-3xl object-cover" src="../assets/images/img3.jpeg"
+          alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="w-[130px] h-[250px] mt-[50px] rounded-3xl object-cover" src="../assets/images/img3.jpeg"
+          alt="trending" />
       </SwiperSlide>
     </Swiper>
     <!-- <div class="relative category ms-10">

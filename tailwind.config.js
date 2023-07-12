@@ -13,7 +13,7 @@ export default {
       secondGrey: '#F4F4F4',
       white1 : '#c5d0d4',
       white2 : '#ced1d2',
-
+      red : '#FF0000'
     },
 
     fontFamily: {
@@ -27,6 +27,7 @@ export default {
     },
 
     fontSize:{
+      xs : '13px',
       base: '1.125rem',
       xxl: '2.125rem',
       title:'2rem',
