@@ -15,8 +15,8 @@ export default {
       <img
         src="../assets/navBarAssets/logo_web.svg"
         alt="logo"
-        width="60"
-        class="justify-items-start mt-3"
+        width="80"
+        class="mt-2 justify-items-start sm:me-6"
       />
     </RouterLink>
       <div class="flex items-center justify-center search">
