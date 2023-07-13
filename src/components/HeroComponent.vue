@@ -3,7 +3,7 @@
     <h1 class="mt-8 font-semibold text-dark ms-6 text-xxl font-display">
       TREND FOR NOW
     </h1>
-    <div class="mx-2 hero">
+    <div class="container lg:px-32">
       <Swiper 
       :slides-per-view="3" 
       :navigation="true"
@@ -12,13 +12,12 @@
       :effect="'coverflow'"
       :coverflowEffect="{
       rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 2,
+      stretch: -100,
+      depth: 200,
       }"
       :centered-slides="false"
       :modules="modules"
-      class="w-auto my-12 swiper_wrapp">
+      class="w-auto mb-20 swiper_wrapp">
       
       <SwiperSlide><img
           src="../assets/images/img2.png" alt="trending" 

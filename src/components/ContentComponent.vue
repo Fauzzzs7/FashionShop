@@ -32,7 +32,7 @@ export default {
   <div>09</div>
 </div> -->
   <div class="container">
-    <p class="mt-[250px] ms-20 font-display font-semibold text-[34px]">
+    <p class="mt-[40px] ms-20 font-display font-semibold text-[34px]">
       Casual
     </p>
     <div class="mt-8 columns-3 ms-20">
