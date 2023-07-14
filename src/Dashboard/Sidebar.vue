@@ -19,7 +19,11 @@
         <span class="material-icons">home</span>
         <span class="text">Dashboard</span>
       </router-link>
-      <ul class="px-12 bg-grey">
+	  <router-link to="" class="button">
+        <span class="material-icons">home</span>
+        <span class="text">Dashboard</span>
+      </router-link>
+      <ul class="button">
         <li>
           <router-link to="/dashboard">
             <a>Tabel Menu</a>
