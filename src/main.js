@@ -11,6 +11,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-coverflow";
 
+import HomePage from './pages/HomePages.vue';
+import DashboardVue from './Dashboard/Dashboard.vue'
+
+const routes = [
+  {
+    path: 'http://localhost:5173/dashboard',
+    name: 'dashboard',
+    component: DashboardVue,
+  },
+  // Add more routes as needed
+];
+
+export default routes;
+
 
 createApp(App)
 .use(router)

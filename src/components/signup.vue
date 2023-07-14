@@ -3,21 +3,26 @@ import { VueGoogleSigninButton } from 'vue-google-signin-button';
 import axios from "axios";
 export default {
     data(){
-        return
+        return {
+      name: '',
+      email: '',
+      password: ''
+      };
     },
     components: {
     VueGoogleSigninButton,
   },
     methods: {
-  signup() {
+  submitForm() {
     const userData = {
       name: this.name,
       email: this.email,
       password: this.password,
     };
-    axios.post('http://127.0.0.1:8000/api/signup', userData)
+    axios.post("http://127.0.0.1:8000/api/signup", userData)
       .then(response => {
         // Handle the successful response (e.g., show a success message, redirect, etc.)
+        this.$router.push('/dashboard');
         console.log(response.data.message);
       })
       .catch(error => {
@@ -77,15 +82,15 @@ export default {
                Let's find your fashion style
              </p>
  
-             <form class="mt-4"  @submit="register">
+             <form class="mt-4"  @submit.prevent="submitForm">
 
                 
                <div class="mb-3">
                  <label class="block mb-2 text-xs font-semibold">Username</label>
                  <input
-                   type="Username"
+                   type="text"
                    placeholder="Enter your username"
-                   v-model="name"
+                   v-model="name" required
                    class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                  />
                </div>
@@ -96,7 +101,7 @@ export default {
                  <input
                    type="email"
                    placeholder="Enter your email"
-                   v-model="email"
+                   v-model="email" required
                    class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                  />
                </div>
@@ -106,14 +111,14 @@ export default {
                  <input
                    type="password"
                    placeholder="*****"
-                   v-model="password"
+                   v-model="password" required
                    class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                  />
                </div>
  
                <div class="mb-3 ">
                     <div>
-                        <button class="mb-1.5 block w-full text-center text-black bg-black hover:bg-gray-600 px-2 py-1.5 rounded-md">
+                        <button type="submit" class="mb-1.5 block w-full text-center text-black bg-black hover:bg-gray-600 px-2 py-1.5 rounded-md">
                             <u>Sign up</u>
                         </button>
                     </div>

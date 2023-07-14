@@ -23,12 +23,13 @@
             </p>
 
             <!-- Form -->
-            <form class="mt-4">
+            <form class="mt-4" @submit.prevent="submitForm">
               <div class="mb-3">
                 <label class="mb-2 block text-xs font-semibold">Email</label>
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  v-model="email"
+                  placeholder="Enter your email" required
                   class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                 />
               </div>
@@ -37,7 +38,8 @@
                 <label class="mb-2 block text-xs font-semibold">Password</label>
                 <input
                   type="password"
-                  placeholder="*****"
+                  v-model="password"
+                  placeholder="*****" required
                   class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                 />
               </div>
@@ -58,18 +60,10 @@
 
               <div class="mb-3">
                 <button
+                  type="submit"
                   class="mb-1.5 block w-full text-center text-white bg-dark hover:bg-gray-600 px-2 py-1.5 rounded-md"
                 >
                   Login
-                </button>
-                <button
-                  class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
-                >
-                  <img
-                    class="w-5 mr-2"
-                    src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
-                  />
-                  Log in with Google
                 </button>
               </div>
             </form>
@@ -102,4 +96,36 @@
   </div>
 </template>
 
-<script setup></script>
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    submitForm() {
+      const userData = {
+      email: this.email,
+      password: this.password,
+    };
+      axios.post('http://127.0.0.1:8000/api/login', userData)
+      .then(response => {
+        const { user, token } = response.data;
+        // Store the user details in local storage or Vuex store for authentication
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        // Handle success, e.g., redirect to the home page
+        this.$router.push('/dashboard');
+      })
+      .catch(error => {
+        console.error(error.response.data);
+        // Handle error, e.g., display error messages
+      });
+    }
+  }
+}
+</script>
