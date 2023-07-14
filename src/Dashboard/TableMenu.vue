@@ -1,9 +1,15 @@
-<template>
+<!-- <template>
   <div class="shadow-lg rounded-lg overflow-hidden">
     <div class="flex justify-between items-center px-6 py-3">
-      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Table Name</h2>
-      <button class="px-4 py-2 text-black bg-gray-500 rounded-lg hover:bg-gray-600 mr-2" @click="AddStyle">Add
-        Item</button>
+      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">
+        Table Name
+      </h2>
+      <button
+        class="px-4 py-2 text-black bg-gray-500 rounded-lg hover:bg-gray-600 mr-2"
+        @click="AddStyle"
+      >
+        Add Item
+      </button>
     </div>
 
     <div class="overflow-y-auto">
@@ -11,7 +17,7 @@
         <thead>
           <tr>
             <th class="px-6 py-3 border-b border-gray-200">
-              <div class="flex justify-start items-center ">
+              <div class="flex justify-start items-center">
                 <span>Image</span>
               </div>
             </th>
@@ -20,17 +26,17 @@
                 <span>Color</span>
               </div>
             </th>
-            <th class="px-6 py-3 border-b border-gray-200 ">
+            <th class="px-6 py-3 border-b border-gray-200">
               <div class="flex justify-start items-center">
                 <span>Gender</span>
               </div>
             </th>
-            <th class="px-6 py-3 border-b border-gray-200 ">
+            <th class="px-6 py-3 border-b border-gray-200">
               <div class="flex justify-start items-center">
                 <span>Category</span>
               </div>
             </th>
-            <th class="px-6 py-3 border-b border-gray-200 ">
+            <th class="px-6 py-3 border-b border-gray-200">
               <div class="flex justify-start items-center">
                 <span>Component</span>
               </div>
@@ -41,8 +47,12 @@
         <tbody>
           <tr v-for="item in items" :key="item.id">
             <td class="px-6 py-4 border-b border-gray-200 w-2/6">
-              <div class="image-container justify-center ">
-                <img :src="item.gambar_url" alt="gambar" class="cropped-image">
+              <div class="image-container justify-center">
+                <img
+                  :src="item.gambar_url"
+                  alt="gambar"
+                  class="cropped-image"
+                />
               </div>
             </td>
             <td class="px-6 py-4 border-b border-gray-200 text-center">
@@ -50,30 +60,48 @@
                 <span>{{ item.color }}</span>
               </div>
             </td>
-            <td class="px-6 py-4 border-b border-gray-200">{{ item.gender }}</td>
-            <td class="px-6 py-4 border-b border-gray-200">{{ item.category }}</td>
-            <td class="px-6 py-4 border-b border-gray-200"><product :id="item.id"/></td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              {{ item.gender }}
+            </td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              {{ item.category }}
+            </td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              <product :id="item.id" />
+            </td>
 
             <td class="px-6 py-4 border-b border-gray-200">
-              <button class="px-4 py-2 text-red bg-red-500 rounded-lg mr-2 hover:bg">Delete</button>
-              <button class="px-4 py-2 text-blue bg-blue-500 rounded-lg mr-2 hover:bg">Edit</button>
-              <button class="px-4 py-2 text-green bg-green-500 rounded-lg hover:bg">Update</button>
+              <div class="flex flex-col items-center justify-center">
+                <button
+                  class="px-4 py-2 text-green bg-white2 mb-1 rounded-lg hover:bg-grey"
+                  @click="ViewComponent(item.id)"
+                >
+                  View Component
+                </button>
+                <button
+                  class="px-4 py-2 text-blue bg-white2 mb-1 rounded-lg mr-2 hover:bg-grey"
+                >
+                  Edit
+                </button>
+                <button
+                  class="px-4 py-2 text-red bg-white2 rounded-lg mr-2 hover:bg-grey"
+                >
+                  Delete
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="p-4">
-
-    </div>
+    <div class="p-4"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { fetchData } from './api.js';
-import product from './TableProduct.vue';
-
+import { ref, onMounted } from "vue";
+import { fetchData } from "./api.js";
+import product from "./TableProduct.vue";
 
 const items = ref([]);
 
@@ -81,7 +109,7 @@ onMounted(async () => {
   try {
     items.value = await fetchData();
   } catch (error) {
-    console.error('Failed to fetch data:', error);
+    console.error("Failed to fetch data:", error);
   }
 });
 </script>
@@ -90,10 +118,13 @@ onMounted(async () => {
 export default {
   methods: {
     AddStyle() {
-      this.$router.push('/dashboard/add');
-    }
-  }
-}
+      this.$router.push("/dashboard/add");
+    },
+    ViewComponent(id) {
+      this.$router.push({ name: "ViewComponent", params: { id: id } });
+    },
+  },
+};
 </script>
 
 <style>
@@ -126,4 +157,5 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}</style>
+}
+</style> -->
