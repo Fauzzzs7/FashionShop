@@ -13,7 +13,8 @@ export default {
       secondGrey: '#F4F4F4',
       white1 : '#c5d0d4',
       white2 : '#ced1d2',
-      red : '#FF0000'
+      bluelink : '#1568ed',
+
     },
 
     fontFamily: {
