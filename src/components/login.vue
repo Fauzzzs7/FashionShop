@@ -9,7 +9,7 @@
         class="flex content-center justify-center bg-white"
         style="width: 100vw; height: 100vh"
       >
-        <img src="../assets/images/LOGO WEB 1.jpg" class="h-10 mt-10 ml-5" />
+        <img src="../assets/logo_web.svg" style="width: 40px; height: 40px; margin-top: 20px;"/>
         <!-- login form -->
         <div
           class="flex flex-wrap content-center justify-center rounded-lg bg-gray-200 mt-56 font-desc bg-secondGrey"
