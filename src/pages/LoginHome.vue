@@ -5,7 +5,5 @@ import signup from '../components/signup.vue';
 
 <template>
     <login/>
+    <signup/>
 </template>
-
-<script>
-</script>
