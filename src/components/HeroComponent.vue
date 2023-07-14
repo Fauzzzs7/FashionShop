@@ -1,52 +1,81 @@
 <template>
   <div class="container">
-    <h1 class="font-semibold text-dark mt-9 ms-20 text-xxl font-display">
+    <h1 class="mt-8 font-semibold text-dark ms-6 text-xxl font-display">
       TREND FOR NOW
     </h1>
-    <Swiper
-      :slides-per-view="3"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
+    <div class="container lg:px-32">
+      <Swiper 
+      :slides-per-view="3" 
       :navigation="true"
+      :space-between="20"
+      :loop="true"
+      :effect="'coverflow'"
+      :coverflowEffect="{
+      rotate: 0,
+      stretch: -100,
+      depth: 200,
+      }"
+      :centered-slides="false"
       :modules="modules"
-    >
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-auto mt-[50px] rounded-3xl ms-[214px]"
-          src="../assets/images/img1.jpg"
-          alt="trending"
-        />
+      class="w-auto mb-20 swiper_wrapp">
+      
+      <SwiperSlide><img
+          src="../assets/images/img2.png" alt="trending" 
+          class="rounded-2xl" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] ms-[102px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img2.jpg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="rounded-2xl"
+          src="../assets/images/img2.png" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="rounded-2xl"
+          src="../assets/images/img3.png" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="rounded-2xl" 
+        src="../assets/images/img3.png" alt="trending" />
       </SwiperSlide>
-      <SwiperSlide
-        ><img
-          class="w-[261px] h-[300px] mt-[50px] rounded-3xl object-cover"
-          src="../assets/images/img3.jpeg"
-          alt="trending"
-        />
+      <SwiperSlide><img class="rounded-2xl" src="../assets/images/img3.png"
+          alt="trending" />
+      </SwiperSlide>
+      <SwiperSlide><img class="rounded-2xl" src="../assets/images/img3.png"
+          alt="trending" />
       </SwiperSlide>
     </Swiper>
-    <!-- <div class="relative category ms-10">
+    </div>
+  </div>
+</template>
+<script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, EffectCoverflow } from "swiper";
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log("slide change");
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Navigation, EffectCoverflow],
+    };
+  },
+};
+</script>
+
+<style>
+.img-category {
+  fill: #1e1e1e;
+}
+
+</style>
+
+<!-- <div class="relative category ms-10">
       <div class="absolute left-0 flex mt-20">
         <span
           class="absolute font-medium text-white left-20 font-desc text-title top-3"
@@ -105,52 +134,3 @@
         </button>
       </div>
     </div> -->
-  </div>
-</template>
-<script>
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper";
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper);
-    };
-    const onSlideChange = () => {
-      console.log("slide change");
-    };
-    return {
-      onSwiper,
-      onSlideChange,
-      modules: [Navigation],
-    };
-  },
-};
-</script>
-
-<style>
-.img-category {
-  fill: #1e1e1e;
-}
-</style>
-<!-- class="swiper_container"
-            > -->
-<!-- <SwiperSlide>
-                <img src="src/assets/images/img1.jpg" alt="slide_image">
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src="src/assets/images/img2.jpg" alt="slide_image">
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src="src/assets/images/img3.jpg" alt="slide_image">
-            </SwiperSlide>
-            <div class="slider-controler">
-                <div class="swiper-button-prev slider-arrow"></div>
-            </div> -->
-<!-- <div class="swiper-pagination"></div> -->
-<!-- </Swiper>      -->

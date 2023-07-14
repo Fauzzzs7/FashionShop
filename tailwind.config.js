@@ -15,7 +15,6 @@ export default {
       white2 : '#ced1d2',
       bluelink : '#1568ed',
 
-      red : '#FF0000'
     },
 
     fontFamily: {
@@ -33,6 +32,11 @@ export default {
       base: '1.125rem',
       xxl: '2.125rem',
       title:'2rem',
+      sm: '24px'
+    },
+
+    height:{
+
     }
 
     
