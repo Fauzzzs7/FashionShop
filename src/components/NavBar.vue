@@ -1,15 +1,22 @@
 <script>
+// import store from './store';
+import isLoggedIn from './login.vue'
 export default {  
   data() {
     return {
-      isLoggedIn: false,
+      isLoggedIn: '',
     };
   },
+  // computed: {
+  //   isLoggedIn() {
+  //     return store.state.isLoggedIn;
+  //   }
+  // },
 };
 </script>
 
 <template>
-  <nav :class="{'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn}">
+  <nav v-if="{'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn}">
     <div class="container flex justify-center w-full">
       <RouterLink to="/">
       <img

@@ -98,10 +98,12 @@
 
 <script>
 import axios from 'axios';
+// import store from './store';
 
 export default {
   data() {
     return {
+      isLoggedIn: false,
       email: '',
       password: ''
     };
@@ -119,7 +121,9 @@ export default {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
         // Handle success, e.g., redirect to the home page
-        this.$router.push('/dashboard');
+        // store.commit('setLoggedIn', true);
+        this.$router.push('/');
+        this.isLoggedIn = true;
       })
       .catch(error => {
         console.error(error.response.data);
