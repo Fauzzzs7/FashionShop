@@ -8,6 +8,7 @@ import Dashboard from '../Dashboard/Dashboard.vue'
 import Index from '../Dashboard/Index.vue'
 import ViewComponent from '../Dashboard/ViewComponent.vue'
 import AddComponent from '../Dashboard/AddComponent.vue'
+import Trending from '../Dashboard/Trending.vue'
 import login from '../pages/LoginHome.vue'
 import signup from '../pages/LoginHome.vue'
 
@@ -66,6 +67,12 @@ const router = createRouter({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+
+      path: '/trending',
+      name: 'trending',
+      component: Trending
     },
     {
       path: '/dashboard/add',

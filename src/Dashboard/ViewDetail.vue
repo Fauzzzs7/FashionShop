@@ -5,6 +5,11 @@ import logoURL from '../assets/Add.svg';
 </script>
 
 <template>
+    <transition name="dropdown">
+        <div v-if="notification" class="notification absolute top-5 right-8 bg-grenn py-2 pl-4 w-1/5 rounded-md shadow">
+            {{ notification }}
+        </div>
+    </transition>
     <div class="flex justify-between ">
         <div class="shadow-lg rounded-lg overflow-hidden w-2/5 h-full">
             <h2 class="text-xl font-semibold text-center text-gray-800 bg-gray-200 px-6 py-3">Style preview</h2>
@@ -111,7 +116,8 @@ export default {
             imageFile: [],
             imagePreview: [],
             toko: [],
-            id: []
+            id: [],
+            notification: null
         };
     },
 
@@ -196,6 +202,7 @@ export default {
             axios.put(`http://127.0.0.1:8000/api/updateproduct/${id}`, { deskrip, link_toko })
                 .then(response => {
                     console.log('Update successful');
+                    this.showNotification('Data berhasil Diedit.');
                     this.isEdit[index] = false;
                 })
                 .catch(error => {
@@ -210,6 +217,7 @@ export default {
 
             axios.post(`http://127.0.0.1:8000/api/perbarui/gambar/${id}`, formData)
                 .then(response => {
+
                     console.log('Product image updated successfully');
                 })
                 .catch(error => {
@@ -222,6 +230,7 @@ export default {
                 // Perform delete operation
                 const id = ide;
                 this.deleteItem(id);
+                this.showNotification('Data berhasil hapus.');
                 this.dataProduct.splice(index, 1);
             } else {
                 // Cancelled delete operation
@@ -237,12 +246,35 @@ export default {
                     console.error('Error deleting product :', error);
                 });
         },
-        tambahcomponent(){
+        tambahcomponent() {
 
             const newStyleId = this.style_id
             this.$router.push({ name: 'AddComponent', params: { id: newStyleId } });
-        }
+        },
+        showNotification(message) {
+            this.notification = message;
+
+            // Setelah beberapa detik, hapus notifikasi
+            setTimeout(() => {
+                this.notification = null;
+            }, 2000); // Ubah 5000 menjadi waktu yang diinginkan (dalam milidetik)
+        },
 
     },
 };
 </script>
+
+<style>
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.5s ease;
+}
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+.dropdown-enter-to {
+  opacity: 100;
+  transform: translateY(0);
+}
+</style>
