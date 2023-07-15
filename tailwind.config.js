@@ -14,6 +14,7 @@ export default {
       white1 : '#c5d0d4',
       white2 : '#ced1d2',
       bluelink : '#1568ed',
+      grenn: '#75fa9b',
 
     },
 

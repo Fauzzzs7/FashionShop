@@ -32,7 +32,7 @@ export default {
         },
         fetchData() {
             axios
-                .get(`${API_URL}/product`)
+                .get(`${API_URL}/product/index`)
                 .then(response => {
                     this.data = response.data;
                     console.log('Data for ID ' + this.id + ':', this.data);

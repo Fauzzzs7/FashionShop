@@ -10,6 +10,7 @@ import ViewComponent from '../Dashboard/ViewComponent.vue'
 import AddComponent from '../Dashboard/AddComponent.vue'
 import login from '../components/login.vue'
 import signup from '../components/signup.vue'
+import Trending from '../Dashboard/Trending.vue'
 
 
 const router = createRouter({
@@ -66,6 +67,12 @@ const router = createRouter({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+
+      path: '/trending',
+      name: 'trending',
+      component: Trending
     },
     {
       path: '/dashboard/add',

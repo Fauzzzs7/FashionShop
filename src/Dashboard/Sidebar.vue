@@ -19,10 +19,10 @@
         <span class="material-icons">home</span>
         <span class="text">Dashboard</span>
       </router-link>
-	  <router-link to="" class="button">
-        <span class="material-icons">home</span>
-        <span class="text">Dashboard</span>
-      </router-link>
+      <router-link to="/trending" class="button">
+				<span class="material-icons">description</span>
+				<span class="text">trending</span>
+			</router-link>
       <ul class="button">
         <li>
           <router-link to="/dashboard">
