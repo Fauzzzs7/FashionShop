@@ -3,6 +3,7 @@ import router from './router'
 import './style.css'
 import App from './App.vue'
 import 'tailwindcss/tailwind.css'
+import axios from 'axios';
 
 
 
@@ -22,6 +23,13 @@ const routes = [
   },
   // Add more routes as needed
 ];
+
+
+const token = localStorage.getItem('token');
+if (token) {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
+
 
 export default routes;
 

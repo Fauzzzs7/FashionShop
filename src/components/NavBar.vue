@@ -1,11 +1,17 @@
 <script>
 // import store from './store';
-import isLoggedIn from './login.vue'
 export default {  
   data() {
     return {
-      isLoggedIn: '',
+      isLoggedIn: false,
     };
+  },
+  created() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // Set the isLoggedIn state to true
+      this.isLoggedIn = true;
+    }
   },
   // computed: {
   //   isLoggedIn() {

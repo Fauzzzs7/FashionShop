@@ -66,6 +66,24 @@
                   Login
                 </button>
               </div>
+              <div class="mb-3 ">
+                <button
+                  class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
+                >
+                <google-signin-button
+                  :client-config="googleConfig"
+                  @success="handleGoogleSignInSuccess"
+                  @failure="handleGoogleSignInFailure"
+                >
+                <img
+                    class="w-5 mr-2"
+                    src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+                  />
+                </google-signin-button>
+                  
+                  Log in with Google
+                </button>
+              </div>
             </form>
 
             <!-- Footer -->
@@ -98,17 +116,31 @@
 
 <script>
 import axios from 'axios';
-// import store from './store';
+import { GAuth } from 'vue-google-signin-button';
 
 export default {
   data() {
     return {
+      googleConfig: {
+        client_id: '41905635144-052aqqsufdobn2ba3vabpmok0etluqls.apps.googleusercontent.com',
+      },
       isLoggedIn: false,
       email: '',
       password: ''
     };
   },
+  components: {
+    GoogleSigninButton: GAuth,
+  },
   methods: {
+    handleGoogleSignInSuccess(googleUser) {
+      // Handle the successful Google sign-in
+      console.log(googleUser);
+    },
+    handleGoogleSignInFailure(error) {
+      // Handle the Google sign-in failure
+      console.error(error);
+    },
     submitForm() {
       const userData = {
       email: this.email,
@@ -117,17 +149,13 @@ export default {
       axios.post('http://127.0.0.1:8000/api/login', userData)
       .then(response => {
         const { user, token } = response.data;
-        // Store the user details in local storage or Vuex store for authentication
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
-        // Handle success, e.g., redirect to the home page
-        // store.commit('setLoggedIn', true);
-        this.$router.push('/');
         this.isLoggedIn = true;
+        this.$router.push('/');
+        
       })
       .catch(error => {
         console.error(error.response.data);
-        // Handle error, e.g., display error messages
       });
     }
   }

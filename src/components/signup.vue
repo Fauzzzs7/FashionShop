@@ -13,6 +13,9 @@ export default {
     VueGoogleSigninButton,
   },
     methods: {
+      signupWithGoogle() {
+      window.location = "http://127.0.0.1:8000/api/signup/google";
+    },
   submitForm() {
     const userData = {
       name: this.name,
@@ -44,6 +47,7 @@ export default {
       axios.post('http://127.0.0.1:8000/api/signup/google', userData)
         .then(response => {
           // Handle the successful response (e.g., show a success message, redirect, etc.)
+          this.$router.push('/dashboard');
         })
         .catch(error => {
           // Handle the error response (e.g., display validation errors, show an error message, etc.)
@@ -123,7 +127,18 @@ export default {
                         </button>
                     </div>
                </div> 
-               <vue-google-signin-button @success="onGoogleSignInSuccess" @error="onGoogleSignInError" />
+               <div>
+                <button
+                @click="signupWithGoogle"
+                  class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
+                >
+                  <img
+                    class="w-5 mr-2"
+                    src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+                  />
+                  Sign Up with Google
+                </button>
+               </div>
              </form>
             
  
