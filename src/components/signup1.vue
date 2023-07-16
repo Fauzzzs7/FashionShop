@@ -7,7 +7,7 @@
   <template>
      <div class="flex flex-wrap">
       <div class="flex" style="width: 100vw; height: 100%">
-        <img src="../assets/images/LOGO WEB 1.jpg" class="h-10 mt-10 ml-10" />
+        <img src="../assets/logo_web.svg" class="h-10 mt-10 ml-10" />
         <div
           class="flex flex-wrap content-center justify-center bg-white"
           style="width: 100vw; height: 100%"
@@ -112,7 +112,7 @@
         >
           <img
             class="w-full h-full bg-no-repeat bg-cover"
-            style="width: 1000px; height: 100vh"
+            style="width: 100vw; height: 100vh"
             src="../assets/images/AW22 1.jpg"
           />
         </div>

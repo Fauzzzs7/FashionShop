@@ -12,7 +12,7 @@
         <img src="../assets/logo_web.svg" style="width: 40px; height: 40px; margin-top: 20px;"/>
         <!-- login form -->
         <div
-          class="flex flex-wrap content-center justify-center rounded-lg bg-gray-200 mt-56 font-desc bg-secondGrey"
+          class="flex flex-wrap content-center justify-center rounded-lg mt-56 font-desc bg-secondGrey"
           style="width: 24rem; height: 32rem"
         >
           <div class="w-72">
