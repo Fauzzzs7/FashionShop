@@ -68,20 +68,20 @@ export default {
         
        
        <div
-         class="flex flex-wrap content-center justify-center bg-white"
-         style="width: 100vw; height: 100%"
+         class="flex content-center justify-center bg-white"
+         style="width: 100vw; height: 100vh"
        ><router-link to="/">
             <button>
-                <img src="../assets/images/LOGO WEB 1.jpg" class="h-10 mt-10 mr-10" />
+                <img src="../assets/logo_web.svg" style="width: 40px; height: 40px; margin-top: 20px;"/>
             </button>
             
         </router-link>
          <div
-           class="flex flex-wrap content-center justify-center mt-32 mb-20 bg-gray-200 rounded-lg font-desc"
+           class="flex flex-wrap content-center justify-center mt-56 rounded-lg font-desc bg-secondGrey"
            style="width: 24rem; height: 34.5rem"
          >
            <div class="w-72">
-             <h1 class="text-2xl font-bold text-center">Welcome back</h1>
+             <h1 class="text-xxl font-bold text-center">Welcome back</h1>
              <p class="text-center text-gray-400">
                Let's find your fashion style
              </p>
@@ -122,7 +122,7 @@ export default {
  
                <div class="mb-3 ">
                     <div>
-                        <button type="submit" class="mb-1.5 block w-full text-center text-black bg-black hover:bg-gray-600 px-2 py-1.5 rounded-md">
+                        <button type="submit" class="mb-1.5 block w-full text-center text-white bg-dark hover:bg-gray-600 px-2 py-1.5 rounded-md">
                             <u>Sign up</u>
                         </button>
                     </div>
@@ -160,7 +160,7 @@ export default {
        >
          <img
            class="w-full h-full bg-no-repeat bg-cover"
-           style="width: 1000px; height: 100vh"
+           style="width: 100vw; height: 100vh"
            src="../assets/images/AW22 1.jpg"
          />
        </div>
