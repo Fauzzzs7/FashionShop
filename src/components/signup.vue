@@ -14,7 +14,10 @@ export default {
   },
     methods: {
       signupWithGoogle() {
-      window.location = "http://127.0.0.1:8000/api/signup/google";
+        axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(response => {
+    // Login...
+          window.location = "http://127.0.0.1:8000/api/signup/google";
+          });
     },
   submitForm() {
     const userData = {

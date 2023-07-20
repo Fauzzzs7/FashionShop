@@ -1,5 +1,14 @@
 <script>
-// import store from './store';
+var csrfToken = "{{ csrf_token() }}";
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+import axios from "axios";
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    // const parts = token.split('|');
+    // const newtoken = parts[1];
+    console.log(token);
+    localStorage.setItem('token', token);
+    window.history.replaceState(null, null, window.location.pathname);
 export default {  
   data() {
     return {
@@ -7,17 +16,32 @@ export default {
     };
   },
   created() {
-    const token = localStorage.getItem('token');
+    
     if (token) {
-      // Set the isLoggedIn state to true
       this.isLoggedIn = true;
     }
+    if (!token){
+      this.isLoggedIn = false;
+   }
   },
-  // computed: {
-  //   isLoggedIn() {
-  //     return store.state.isLoggedIn;
-  //   }
-  // },
+  methods: {
+  logout() {
+    axios.post('http://127.0.0.1:8000/api/logout', null, {
+    headers: {
+    Authorization: `Bearer ${token}`,
+    },
+  })
+      .then(response => {
+        this.$router.push('/');
+        localStorage.removeItem("token");
+        this.isLoggedIn = false;
+        console.log(response.data.message);
+      })
+      .catch(error => {
+        console.error(error.response.data);
+      });
+  }
+}
 };
 </script>
 
@@ -67,8 +91,13 @@ export default {
         >
           Log In
         </button>
+          
         </router-link>
-        
+        <button @click="logout"
+          v-if="isLoggedIn"
+          class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11"
+        >
+          Log out </button>
       </div>
     </div>
   </nav>
