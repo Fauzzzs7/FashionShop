@@ -6,7 +6,7 @@ import axios from "axios";
     const token = params.get('token');
     // const parts = token.split('|');
     // const newtoken = parts[1];
-    console.log(token);
+    // console.log(token);
     localStorage.setItem('token', token);
     window.history.replaceState(null, null, window.location.pathname);
 export default {  

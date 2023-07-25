@@ -67,21 +67,14 @@
                 </button>
               </div>
               <div class="mb-3 ">
-                <button
+                <button @click="loginWithGoogle"
                   class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
-                >
-                <google-signin-button
-                  :client-config="googleConfig"
-                  @success="handleGoogleSignInSuccess"
-                  @failure="handleGoogleSignInFailure"
                 >
                 <img
                     class="w-5 mr-2"
                     src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
-                  />
-                </google-signin-button>
-                  
-                  Log in with Google
+                  />                
+                  Login with Google
                 </button>
               </div>
             </form>
@@ -117,6 +110,8 @@
 <script>
 import axios from 'axios';
 import { GAuth } from 'vue-google-signin-button';
+var csrfToken = "{{ csrf_token() }}";
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
 
 export default {
   data() {
@@ -133,11 +128,21 @@ export default {
     GoogleSigninButton: GAuth,
   },
   methods: {
-    handleGoogleSignInSuccess(googleUser) {
-      // Handle the successful Google sign-in
-      console.log(googleUser);
+    loginWithGoogle() {
+        axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(response => {
+    // Login...
+          window.location = "http://127.0.0.1:8000/api/login/google";
+          });
     },
-    handleGoogleSignInFailure(error) {
+    onGoogleSignUpSuccess(googleUser) {
+      const { id, name, email, imageUrl } = googleUser.getBasicProfile();
+      const userData = {
+        googleId: id,
+        name,
+        email,
+        imageUrl,
+      };
+    },onGoogleSignUpError(error) {
       // Handle the Google sign-in failure
       console.error(error);
     },
@@ -148,9 +153,9 @@ export default {
     };
       axios.post('http://127.0.0.1:8000/api/login', userData)
       .then(response => {
-        const { user, token } = response.data;
+        const token  = response.data.token;
         localStorage.setItem('token', token);
-        this.isLoggedIn = true;
+        // this.isLoggedIn = true;
         this.$router.push('/');
         
       })
