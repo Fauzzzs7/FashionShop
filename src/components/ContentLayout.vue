@@ -5,7 +5,7 @@
       <router-link to="/detail">
         <img
           class="w-[390px] h-[582px] rounded-[34px] object-cover"
-          src="../assets/images/img1.jpg"
+          src="https://github.com/Fauzzzs7/FashionShop/blob/iqbal/src/assets/images/img1.png?raw=true"
           alt="content"
         />
       </router-link>
