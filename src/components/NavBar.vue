@@ -23,7 +23,7 @@ export default {
 
 <template>
   <nav v-if="{'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn}">
-    <div class="container flex justify-center w-full">
+    <div class="container flex justify-center w-full mt-8">
       <RouterLink to="/">
       <img
         src="../assets/navBarAssets/logo_web.svg"
