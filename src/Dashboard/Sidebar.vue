@@ -1,10 +1,16 @@
 <template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
-      <img
+      <router-link to="/">
+          <button
+          class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
+        ><img
         src="https://github.com/Fauzzzs7/FashionShop/blob/master/src/assets/images/LOGO%20WEB%201.jpg?raw=true"
         class="h-10 w-10"
       />
+        </button>
+        </router-link>
+      
     </div>
 
     <div class="menu-toggle-wrap">

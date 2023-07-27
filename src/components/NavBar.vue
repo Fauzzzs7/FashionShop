@@ -86,7 +86,7 @@ export default {
           />
         </button>
         <router-link to="/login">
-          <button
+          <button v-if="!isLoggedIn"
           class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11"
         >
           Log In
