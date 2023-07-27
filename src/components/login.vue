@@ -35,8 +35,9 @@
               <a href="#" class="text-xs font-semibold text-black">Forgot password?</a>
             </div>
 
+
             <div class="mb-3">
-              <button class="mb-1.5 block w-full text-center text-white bg-dark hover:bg-gray-600 px-2 py-1.5 rounded-md">
+              <button @click="isLoggedIn" class="mb-1.5 block w-full text-center text-white bg-dark hover:bg-gray-600 px-2 py-1.5 rounded-md">
                 Login
               </button>
               <button

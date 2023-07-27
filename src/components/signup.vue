@@ -14,24 +14,29 @@ export default {
   },
   methods: {
     signupWithGoogle() {
-      window.location = "http://127.0.0.1:8000/api/signup/google";
+        axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(response => {
+    // Login...
+          window.location = "http://127.0.0.1:8000/api/signup/google";
+          });
     },
-    submitForm() {
-      const userData = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      };
-      axios.post("http://127.0.0.1:8000/api/signup", userData)
-        .then(response => {
-          // Handle the successful response (e.g., show a success message, redirect, etc.)
-          this.$router.push('/dashboard');
-          console.log(response.data.message);
-        })
-        .catch(error => {
-          // Handle the error response (e.g., display validation errors, show an error message, etc.)
-          console.error(error.response.data);
-        });
+  submitForm() {
+    const userData = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+    };
+    axios.post("http://127.0.0.1:8000/api/signup", userData)
+      .then(response => {
+        // Handle the successful response (e.g., show a success message, redirect, etc.)
+        this.$router.push('/');
+        const token  = response.data.token;
+        localStorage.setItem('token', token);
+        isLoggedIn = true;
+      })
+      .catch(error => {
+        // Handle the error response (e.g., display validation errors, show an error message, etc.)
+        // console.error(error.response.data);
+      });
     },
     onGoogleSignUpSuccess(googleUser) {
       // Retrieve the necessary user details from the googleUser object
@@ -47,7 +52,11 @@ export default {
       axios.post('http://127.0.0.1:8000/api/signup/google', userData)
         .then(response => {
           // Handle the successful response (e.g., show a success message, redirect, etc.)
-          this.$router.push('/dashboard');
+          const token  = response.data.token;
+          localStorage.setItem('token', token);
+          // this.isLoggedIn = true;
+          this.$router.push('/');
+          console.log(response.data.message);
         })
         .catch(error => {
           // Handle the error response (e.g., display validation errors, show an error message, etc.)

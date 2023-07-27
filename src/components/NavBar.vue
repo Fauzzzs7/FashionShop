@@ -1,23 +1,47 @@
 <script>
-// import store from './store';
-export default {
+var csrfToken = "{{ csrf_token() }}";
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+import axios from "axios";
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    // const parts = token.split('|');
+    // const newtoken = parts[1];
+    // console.log(token);
+    localStorage.setItem('token', token);
+    window.history.replaceState(null, null, window.location.pathname);
+export default {  
   data() {
     return {
       isLoggedIn: true,
     };
   },
   created() {
-    const token = localStorage.getItem('token');
+    
     if (token) {
-      // Set the isLoggedIn state to true
       this.isLoggedIn = true;
     }
+    if (!token){
+      this.isLoggedIn = false;
+   }
   },
-  // computed: {
-  //   isLoggedIn() {
-  //     return store.state.isLoggedIn;
-  //   }
-  // },
+  methods: {
+  logout() {
+    axios.post('http://127.0.0.1:8000/api/logout', null, {
+    headers: {
+    Authorization: `Bearer ${token}`,
+    },
+  })
+      .then(response => {
+        this.$router.push('/');
+        localStorage.removeItem("token");
+        this.isLoggedIn = false;
+        console.log(response.data.message);
+      })
+      .catch(error => {
+        console.error(error.response.data);
+      });
+  }
+}
 };
 </script>
 
@@ -25,7 +49,7 @@ export default {
   <nav v-if="{ 'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn }">
     <div class="container flex justify-center w-full mt-8">
       <RouterLink to="/">
-        <img src="../assets/navBarAssets/logo_web.svg" alt="logo" width="80" class="justify-items-start ms-4" />
+        <img src="../assets/navBarAssets/logo_web.svg" alt="logo" width="80" class="flex justify-items-start ms-4 lg:mt-4" />
       </RouterLink>
       <div class="flex items-center justify-center search">
         <div class="icon_search flex items-center justify-center bg-white rounded-[1.5rem] px-[0.75rem] ms-24">
@@ -42,12 +66,18 @@ export default {
           <img src="../assets/navBarAssets/Bookmark.svg" alt="bookmark" class="p-10" />
         </button>
         <router-link to="/login">
-          <button
-            class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11">
-            Log In
-          </button>
+          <button v-if="!isLoggedIn"
+          class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11 lg:ms-24"
+        >
+          Log In
+        </button>
+          
         </router-link>
-
+        <button @click="logout"
+          v-if="isLoggedIn"
+          class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11"
+        >
+          Log out </button>
       </div>
     </div>
   </nav>
