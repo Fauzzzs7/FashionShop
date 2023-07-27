@@ -72,7 +72,7 @@ const ToggleMenu = () => {
 export default {
   data() {
     return {
-      isActive: false,
+      isActive: true,
     };
   },
   methods: {

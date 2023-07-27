@@ -45,7 +45,7 @@ import logoURL from '../assets/Add.svg';
                                     </div>
                                     <div class="flex w-full pb-5  ml-2 items-center">
                                         <label for="link_toko"
-                                            class="block text-sm font-medium text-gray-700 pr-3">Deskripsi</label>
+                                            class="block font-medium text-gray-700 pr-3">Deskripsi</label>
                                         <div class="mr-3">
                                             <p>:</p>
                                         </div>
@@ -58,7 +58,7 @@ import logoURL from '../assets/Add.svg';
                                         </div>
                                     </div>
                                     <div class="flex w-full pt-2 ml-2 items-center">
-                                        <label for="link_toko" class="block text-sm font-medium text-gray-700 pr-3">Link
+                                        <label for="link_toko" class="block font-medium text-gray-700 pr-3">Link
                                             Toko</label>
                                         <div class="">
                                             <p>:</p>
@@ -73,7 +73,7 @@ import logoURL from '../assets/Add.svg';
                                         </div>
                                     </div>
                                     <div v-if="isEdit[index]" class="flex w-full pb-5 pt-2 ml-2 items-center">
-                                        <label for="link_toko" class="block text-sm font-medium text-gray-700">Ganti
+                                        <label for="link_toko" class="block font-medium text-gray-700">Ganti
                                             Gambar</label>
                                         <div class="">
                                             <p>:</p>
@@ -99,7 +99,13 @@ import logoURL from '../assets/Add.svg';
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div class="my-3 mx-3 " @click="tambahcomponent">
+                    <button class="bg-grey hover:bg-dark text-white font-bold py-2 px-4 border rounded-lg shadow-lg">
+                        Tambah Component
+                    </button>
+                </div>
         </div>
 
     </div>
@@ -267,14 +273,16 @@ export default {
 <style>
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
+
 .dropdown-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
+    opacity: 0;
+    transform: translateY(-5px);
 }
+
 .dropdown-enter-to {
-  opacity: 100;
-  transform: translateY(0);
+    opacity: 100;
+    transform: translateY(0);
 }
 </style>
