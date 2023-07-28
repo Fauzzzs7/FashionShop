@@ -2,15 +2,13 @@
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
       <router-link to="/">
-          <button
-          class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"
-        ><img
-        src="https://github.com/Fauzzzs7/FashionShop/blob/master/src/assets/images/LOGO%20WEB%201.jpg?raw=true"
-        class="h-10 w-10"
-      />
+        <button
+          class="flex flex-wrap justify-center w-full border border-grey hover:border-gray-500 px-2 py-1.5 rounded-md bg-white"><img
+            src="https://github.com/Fauzzzs7/FashionShop/blob/master/src/assets/images/LOGO%20WEB%201.jpg?raw=true"
+            class="h-10 w-10" />
         </button>
-        </router-link>
-      
+      </router-link>
+
     </div>
 
     <div class="menu-toggle-wrap mt-8 ">
@@ -27,8 +25,12 @@
       </router-link>
       <div @click="toggleActive" class="button" :class="{ active: isActive }">
         <span class="material-icons">description</span>
-        <span class="text">Table</span>
+        <div class="flex items-center justify-between">          
+          <span class="text">Table</span>
+        </div>
+        <span class="material-icons">{{ isActive ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}</span>
       </div>
+
       <div v-if="isActive" class="dropdown-content" :class="{ 'drop-down': isActive, 'drop-up': !isActive }">
         <router-link to="/style" class="button bg-dark">
           <span class="ml-14 text">style</span>
@@ -162,7 +164,7 @@ aside {
   &.dropdown-content {
     max-height: 0;
     overflow: hidden;
-    
+
   }
 
   &.drop-down {

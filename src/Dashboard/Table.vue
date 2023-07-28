@@ -6,7 +6,7 @@
   </transition>
   <div class="shadow-lg rounded-lg overflow-hidden">
     <div class="flex justify-between items-center px-6 py-3">
-      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Table Name</h2>
+      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Style Table</h2>
       <button class="px-4 py-2 text-black bg-white2 rounded-lg hover:bg-grey mr-2" @click="AddStyle">Add
         Item</button>
     </div>

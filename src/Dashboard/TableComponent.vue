@@ -6,9 +6,7 @@
   </transition>
   <div class="shadow-lg rounded-lg overflow-hidden">
     <div class="flex justify-between items-center px-6 py-3">
-      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Table Name</h2>
-      <button class="px-4 py-2 text-black bg-white2 rounded-lg hover:bg-grey mr-2" @click="AddStyle">Add
-        Item</button>
+      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Component Table</h2>
     </div>
 
     <div class="overflow-y-auto">
@@ -57,7 +55,9 @@
               </div>
             </td>
             <td class="px-6 py-4 border-b border-gray-200">{{ item.category }}</td>
-            <td class="px-6 py-4 border-b border-gray-200">{{ item.link_toko }}</td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              <a :href="item.link_toko" target="_blank" class="text-bluelink hover:underline">{{ item.link_toko }}</a>
+            </td>
             <td class="px-6 py-4 border-b border-gray-200">{{ item.deskripsi }} </td>
 
             <td class="px-6 py-4 border-b border-gray-200">
