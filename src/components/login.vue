@@ -101,16 +101,16 @@ export default {
         password: this.password,
       };
       axios.post('http://127.0.0.1:8000/api/login', userData)
-        .then(response => {
-          const { user, token } = response.data;
-          localStorage.setItem('token', token);
-          this.isLoggedIn = true;
-          this.$router.push('/');
-
-        })
-        .catch(error => {
-          console.error(error.response.data);
-        });
+      .then(response => {
+        const token  = response.data.token;
+        localStorage.setItem('token', token);
+        // this.isLoggedIn = true;
+        this.$router.push('/');
+        
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
     }
   }
 }
