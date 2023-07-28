@@ -10,14 +10,12 @@
     
     <main>
       <router-view />
-				<Table />
     </main>
   </div>
 </template>
 
 <script setup>
 import Sidebar from './Sidebar.vue'
-import Table from './Table.vue'
 </script>
 
 <style lang="scss">

@@ -6,9 +6,7 @@
   </transition>
   <div class="shadow-lg rounded-lg overflow-hidden">
     <div class="flex justify-between items-center px-6 py-3">
-      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Style Table</h2>
-      <button class="px-4 py-2 text-black bg-white2 rounded-lg hover:bg-grey mr-2" @click="AddStyle">Add
-        Item</button>
+      <h2 class="text-xl font-semibold text-gray-800 bg-gray-200">Component Table</h2>
     </div>
 
     <div class="overflow-y-auto">
@@ -22,12 +20,7 @@
             </th>
             <th class="px-6 py-3 border-b border-gray-200 w-1/6">
               <div class="flex justify-start items-center">
-                <span>Color</span>
-              </div>
-            </th>
-            <th class="px-6 py-3 border-b border-gray-200 ">
-              <div class="flex justify-start items-center">
-                <span>Gender</span>
+                <span>From Style_id</span>
               </div>
             </th>
             <th class="px-6 py-3 border-b border-gray-200 ">
@@ -37,7 +30,13 @@
             </th>
             <th class="px-6 py-3 border-b border-gray-200 ">
               <div class="flex justify-start items-center">
-                <span>Component</span>
+                <span>Link Toko</span>
+              </div>
+            </th>
+
+            <th class="px-6 py-3 border-b border-gray-200 ">
+              <div class="flex justify-start items-center">
+                <span>deskripsi</span>
               </div>
             </th>
             <th class="px-6 py-3 border-b border-gray-200">Actions</th>
@@ -47,26 +46,24 @@
           <tr v-for="(item, index) in item" :key="item.id">
             <td class="px-6 py-4 border-b border-gray-200 w-2/6">
               <div class="image-container justify-center ">
-                <img :src="item.gambar_url" alt="gambar" class="cropped-image">
+                <img :src="item.link_gambar" alt="gambar" class="cropped-image">
               </div>
             </td>
             <td class="px-6 py-4 border-b border-gray-200 text-center">
               <div class="flex justify-start items-center w-1/6">
-                <span>{{ item.color }}</span>
+                <span>{{ item.style_id }}</span>
               </div>
             </td>
-            <td class="px-6 py-4 border-b border-gray-200">{{ item.gender }}</td>
             <td class="px-6 py-4 border-b border-gray-200">{{ item.category }}</td>
             <td class="px-6 py-4 border-b border-gray-200">
-              <product :id="item.id" />
+              <a :href="item.link_toko" target="_blank" class="text-bluelink hover:underline">{{ item.link_toko }}</a>
             </td>
+            <td class="px-6 py-4 border-b border-gray-200">{{ item.deskripsi }} </td>
 
             <td class="px-6 py-4 border-b border-gray-200">
               <div class="flex flex-col items-center justify-center">
                 <button class="px-4 py-2 text-green bg-white2 mb-1 rounded-lg hover:bg-grey "
-                  @click="ViewComponent(item.id)">View Component</button>
-                <button class="px-4 py-2 text-blue bg-white2 mb-1 rounded-lg mr-2 hover:bg-grey"
-                  @click="AddTrend(item.id, item.gambar_url)"> Add to Trend</button>
+                  @click="ViewComponent(item.style_id)">Edit</button>
                 <button class="px-4 py-2 text-red bg-white2  rounded-lg mr-2 hover:bg-grey "
                   @click="confirmDelete(index, item.id)"> Delete</button>
 
@@ -85,53 +82,41 @@
 
 <script setup>
 import axios from 'axios';
-import product from './TableProduct.vue';
 </script>
 
 <script>
 export default {
   data() {
     return {
-      item : null,
-      notification: null
+      item: null,
+      notification: null,
     };
   },
+  // mounted() {
+  //   // Loop through your list of items and call the getStyleImage method for each item
+  //   for (const items of this.item) {
+  //     this.getStyleImage(items.style_id);
+  //   }
+  // },
 
   created() {
-        this.fetchData();
-    },
+    this.fetchData();
+  },
   methods: {
     fetchData() {
-            axios
-                .get(`http://127.0.0.1:8000/api/style`)
-                .then(response => {
-                    this.item = response.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        },
-    AddStyle() {
-      this.$router.push('/dashboard/add');
+      axios
+        .get(`http://127.0.0.1:8000/api/product/index`)
+        .then(response => {
+          this.item = response.data;
+          // Call the function to fetch the style images for each item
+          this.fetchStyleImages();
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
     },
     ViewComponent(id) {
       this.$router.push({ name: 'ViewComponent', params: { id: id } });
-    },
-    AddTrend(id, url) {
-      const style = id;
-      const gambar_url = url;
-      const formData = new FormData();
-      formData.append('style_id', style);
-      formData.append('gambar_url', gambar_url);
-
-      axios.post(`http://127.0.0.1:8000/api/trend`, formData)
-        .then(response => {
-          this.showNotification('Data berhasil Diedit.');
-          console.log('Trend Add successfully');
-        })
-        .catch(error => {
-          console.error('Error adding trend:', error);
-        });
     },
     showNotification(message) {
       this.notification = message;
@@ -146,7 +131,6 @@ export default {
         // Perform delete operation
         const id = ide;
         this.deleteProductToo(id);
-        this.deleteTrendToo(id);
         this.showNotification('Data berhasil hapus.');
         this.item.splice(index, 1);
       } else {
@@ -154,17 +138,8 @@ export default {
         console.log('Cancel Delete');
       }
     },
-    deleteItem(id) {
-      axios.delete(`http://127.0.0.1:8000/api/style/delete/${id}`)
-        .then(response => {
-          console.log('Style delete successfully');
-        })
-        .catch(error => {
-          console.error('Error deleting Style :', error);
-        });
-    },
     deleteProductToo(id) {
-      axios.delete(`http://127.0.0.1:8000/api/productwithstyle/delete/${id}`)
+      axios.delete(`http://127.0.0.1:8000/api/product/delete/${id}`)
         .then(response => {
           console.log('Product delete successfully');
         })
@@ -172,17 +147,6 @@ export default {
           console.error('Error deleting product :', error);
         });
     },
-    deleteTrendToo(id) {
-      const ide = id;
-      axios.delete(`http://127.0.0.1:8000/api/trendwithstyle/delete/${ide}`)
-        .then(response => {
-          this.deleteItem(ide);
-          console.log('Trend delete successfully');
-        })
-        .catch(error => {
-          console.error('Error deleting Trend :', error);
-        });
-    }
   }
 }
 </script>

@@ -1,10 +1,5 @@
-<script setup>
-import Sidebar from './Sidebar2.vue'
-import trendtable from './TrendingTable.vue'
-</script>
-
 <template>
-  <div class="app flex">
+  <div class="flex app">
     <!-- Headbar -->
     
 
@@ -15,10 +10,15 @@ import trendtable from './TrendingTable.vue'
     
     <main>
       <router-view />
-      <trendtable />
+				<Table />
     </main>
   </div>
 </template>
+
+<script setup>
+import Sidebar from './Sidebar2.vue'
+import Table from './Table.vue'
+</script>
 
 <style>
 .app main {
