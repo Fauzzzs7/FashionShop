@@ -8,23 +8,23 @@ defineProps({
 const count = ref(0)
 </script> -->
 
-<script>
-export default {
-  name: 'AddFav'
-}
+<script setup>
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-  <div class="container ms-[47px] mt-[35px]">
+  
+    <div class="container ms-[47px] mt-[35px]">
     <img src="src/assets/bookmark.svg" alt="bookmark">
-    <p class="flex ms-[50px] mt-[-38px] text-2xl font-dsc font-semibold">Favorit</p>
+    <p class="flex ms-[50px] mt-[-32px] text-2xl font-dsc font-semibold">Favorit</p>
   </div>
 
-  <div class="container ms-[1263px] mt-[100px]">
+  <router-link to="/">
+    <div class="container ms-[1263px] mt-[100px]">
     <img src="src/assets/Addmini.svg" alt="bookmark">
-    <p class="flex ms-[50px] mt-[-38px] text-2xl font-dsc font-semibold">Add Colase</p>
+    <p class="flex ms-[50px] mt-[-28px] text-2xl font-dsc font-semibold">Add Colase</p>
   </div>
-
+  </router-link>
 
   <div class="container">
     <div class="mt-[110px] columns-3 ms-[85px]">
