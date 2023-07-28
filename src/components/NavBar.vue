@@ -78,15 +78,18 @@ export default {
           />
         </div>
 
-        <button v-if="isLoggedIn">
+        <router-link to="/AddFav">
+         <button v-if="isLoggedIn">
           <img
             src="../assets/navBarAssets/Bookmark.svg"
             alt="bookmark"
             class="p-10"
           />
-        </button>
+        </button> 
+        </router-link>
+        
         <router-link to="/login">
-          <button
+          <button v-if="!isLoggedIn"
           class="btn_login text-white bg-dark font-display pt-2 me-4 py-1.5 px-3 w-[90px] h-9 flex justify-center rounded-lg lg:py-3 lg:px-3 lg:w-[170px] lg:h-11"
         >
           Log In
