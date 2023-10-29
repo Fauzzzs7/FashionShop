@@ -51,7 +51,7 @@ export default {
   <nav v-if="{ 'logged-in': isLoggedIn, 'not-logged-in': !isLoggedIn }">
     <div class="container flex justify-center w-full mt-8">
       <RouterLink to="/">
-        <img src="../assets/navBarAssets/logo_web.svg" alt="logo" width="80" class="flex mt-3 justify-items-center ms-4" />
+        <img src="../assets/navbarAssets/logo_web.svg" alt="logo" width="80" class="flex mt-3 justify-items-center ms-4" />
       </RouterLink>
       <div class="flex items-center justify-center search">
         <div class="icon_search flex items-center justify-center bg-white rounded-[1.5rem] px-[0.75rem] ms-24">
@@ -66,7 +66,7 @@ export default {
 
         <button v-if="isLoggedIn">
           <RouterLink to="/favorite">
-            <img src="../assets/navBarAssets/Bookmark.svg" alt="bookmark" class="p-2 mx-4" />
+            <img src="../assets/navbarAssets/Bookmark.svg" alt="bookmark" class="p-2 mx-4" />
           </RouterLink>
         </button>
         <router-link to="/login">
