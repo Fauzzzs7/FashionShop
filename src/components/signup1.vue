@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import axios from "axios";
 </script>
 
@@ -107,4 +107,4 @@ import axios from "axios";
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->
