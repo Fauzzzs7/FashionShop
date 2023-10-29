@@ -1,15 +1,13 @@
 <script>
 import axios from "axios";
 export default {
-  
-  
-  
+
   data() {
     return {
       style: [],
       link_gambar: [],
       gambar_url: '',
-      Products:[]
+      Products: []
     };
   },
   mounted() {
@@ -24,7 +22,7 @@ export default {
       .catch((err) => {
         console.error("Error:", err);
       }),
-      
+
       axios
         .get(`http://127.0.0.1:8000/api/style/${id}`)
         .then((Response) => {
@@ -39,35 +37,35 @@ export default {
 </script>
 
 <template>
-  <div class="container w-[86rem] h-[727px] mt-[74px] bg-white">
+  <div class="container w-full h-[758px] mt-[74px] bg-white 
+  sm:right-[10.5rem] sm:h-[724px] sm:mt-[74px]
+  lg:mt-[74px] lg:w-[1270px]">
     <p class="relative leading-6 font-display ms-40 top-3 text-6">Casual Style</p>
-    <div class="container w-[720px] relative right-[10.5rem] drop-shadow-2xl h-[613px] mt-[44px] bg-white">
+    <div class="container flex w-[320px] relative drop-shadow-2xl h-[413px] mt-[44px] bg-white
+   sm:w-[720px] sm:h-[613px]
+   lg: lg:ms-40">
       <div v-if="style">
-        <div v-for="style in style" >
-          <img
-            class="relative left-[165px] top-[25px] w-[390px] h-[562px] object-cover rounded-[34px]"
-            :src="`${style.gambar_url}`"
-            alt="style"
-          />
+        <div v-for="style in style">
+          <img class="relative left-[50px] top-[25px] w-[200px] h-[362px] object-cover rounded-[34px]
+            sm:w-[390px] sm:h-[562px]
+            lg:ms-24" :src="`${style.gambar_url}`" alt="style" />
         </div>
       </div>
     </div>
-    <div class="relative grid justify-items-end detail-content">
-    <div class="detail relative w-[170px] h-[170px] my-2 right-36 bottom-[36rem] bg-secondGrey" v-for="Product in Products" :key="Product.id">
-        <div >
-            <img
-          class="w-[127px] relative top-5 left-5"
-          :src="`${Product.link_gambar}`"
-          :alt="Product.deskripsi"
-          :product-id="this.$route.params.id"
-        />
+    <!-- detail relative w-[170px] h-[170px]  -->
+    <div class="relative flex gap-4 mt-14 ms-4 detail-content sm:grid sm:justify-items-end">
+      <div class="detail relative w-auto h-[170px] my-2  bg-secondGrey
+    sm:bottom-[656px] sm:w-[170px] sm:right-14
+    lg:me-8" v-for="Product in Products" :key="Product.id">
+        <div>
+          <img class="w-[127px] sm:left-6 sm:top-6 relative top-5" :src="`${Product.link_gambar}`"
+            :alt="Product.deskripsi" :product-id="this.$route.params.id" />
         </div>
+      </div>
     </div>
+
+
   </div>
-    
-    
-  </div>
-  
 </template>
 
 <style></style>
@@ -84,4 +82,36 @@ export default {
         </div>
     </div>
   </div>
+</div> -->
+
+<!-- container w-[86rem] h-[727px] mt-[74px] bg-white -->
+
+<!-- <div class="container w-full h-[727px] mt-[74px] bg-white">
+  <p class="relative leading-6 font-display ms-40 top-3 text-6">Casual Style</p>
+  <div class="container flex w-[720px] relative right-[10.5rem] drop-shadow-2xl h-[613px] mt-[44px] bg-white
+  sm:bg-dark sm:w-[400px] sm:relative">
+    <div v-if="style">
+      <div v-for="style in style" >
+        <img
+          class="relative left-[165px] top-[25px] w-[390px] h-[562px] object-cover rounded-[34px]"
+          :src="`${style.gambar_url}`"
+          alt="style"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="relative grid justify-items-end detail-content">
+  <div class="detail relative w-[170px] h-[170px] my-2 right-36 bottom-[36rem] bg-secondGrey" v-for="Product in Products" :key="Product.id">
+      <div >
+          <img
+        class="w-[127px] relative top-5 left-5"
+        :src="`${Product.link_gambar}`"
+        :alt="Product.deskripsi"
+        :product-id="this.$route.params.id"
+      />
+      </div>
+  </div>
+</div>
+  
+  
 </div> -->
