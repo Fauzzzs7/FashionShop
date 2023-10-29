@@ -72,10 +72,10 @@
         />
       </div>
     <!-- Login banner -->
-    <div class="flex flex-wrap rounded-r-md" style="width: 100%; height: 100vh">
+    <!-- <div class="flex flex-wrap rounded-r-md" style="width: 100%; height: 100vh">
       <img class="object-cover w-full h-full mr-0 bg-no-repeat bg-cover" style="width: 100vw; height: 100vh"
         src="../assets/images/AW221.jpg" />
-    </div>
+    </div> -->
   </div>
 </template>
 
