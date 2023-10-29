@@ -100,7 +100,7 @@
         <img
           class="w-full h-full bg-no-repeat bg-cover mr-0"
           style="width: 100vw; height: 100vh"
-          src="../assets/images/AW22 1.jpg"
+          src="../assets/images/AW221.jpg"
         />
       </div>
     </div>

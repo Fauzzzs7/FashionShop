@@ -170,7 +170,7 @@ export default {
          <img
            class="w-full h-full bg-no-repeat bg-cover"
            style="width: 100vw; height: 100vh"
-           src="../assets/images/AW22 1.jpg"
+           src="../assets/images/AW221.jpg"
          />
        </div>
      </div>
